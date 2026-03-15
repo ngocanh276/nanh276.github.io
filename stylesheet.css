@@ -46,7 +46,6 @@ header {
     color: #999;
 }
 
-/* GIỚI THIỆU */
 .profile-section {
     display: flex;
     align-items: center;
@@ -54,8 +53,10 @@ header {
 }
 
 .profile-text {
-    flex: 2;
-    font-size: 18px;
+       flex: 2;
+    font-size: 17px;
+    line-height: 1.8; 
+    text-align: justify; 
 }
 
 .avatar {
