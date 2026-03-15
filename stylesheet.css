@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Pinyon+Script&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Charm:wght@400;700&display=swap');
 
 body {
   font-family: 'Playfair Display', serif;
   background-color: #fcfbf8;
   color: #2c3e50;
-  line-height: 1.8;
   margin: 0;
   padding: 0;
 }
@@ -12,13 +11,13 @@ body {
 .hero-section {
   position: relative;
   width: 100%;
-  height: 80vh; 
+  height: 100vh; 
   overflow: hidden;
   background-color: #fcfbf8;
 }
 
 .slider {
-  width: 400%; 
+  width: 400%;
   height: 100%;
   display: flex;
   animation: slide 18s infinite ease-in-out;
@@ -29,46 +28,51 @@ body {
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain; 
   position: relative;
 }
 
-/* Gán 3 ảnh PNG ông chọn */
-.slide1 { background-image: url('images/hero_1.png'); background-size: contain; } 
-.slide2 { background-image: url('images/hero_2.png'); background-size: cover; }   
-.slide3 { background-image: url('images/hero_3.png'); background-size: cover; }   
-.slide4 { background-image: url('images/hero_1.png'); background-size: contain; } 
+.slide1 { background-image: url('images/hero_1.png'); }
+.slide2 { background-image: url('images/hero_2.png'); }
+.slide3 { background-image: url('images/hero_3.png'); }
+.slide4 { background-image: url('images/hero_1.png'); }
 
 .hero-content {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); 
   text-align: center;
   z-index: 10;
-  width: 90%;
+  width: 80%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.4); 
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(4px);
 }
 
 .hero-name {
-  font-size: clamp(36px, 8vw, 62px);
+  font-size: clamp(30px, 6vw, 50px);
+  color: #3A4D39;
+  margin: 0 0 15px 0;
   font-weight: 700;
-  margin-bottom: 15px;
-  color: #3A4D39; 
 }
 
 .hero-quote {
-  font-family: 'Pinyon Script', cursive; 
-  font-size: clamp(28px, 5vw, 45px);
-  line-height: 1.2;
-  margin-bottom: 10px;
+  font-family: 'Charm', cursive;
+  font-size: clamp(20px, 4vw, 32px);
   color: #4F6F52;
+  line-height: 1.4;
+  font-style: italic;
 }
 
 .hero-author {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-style: italic;
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
   letter-spacing: 2px;
-  color: #888;
+  color: #777;
 }
 
 @keyframes slide {
@@ -78,7 +82,6 @@ body {
   100% { transform: translateX(-75%); }
 }
 
-/* --- MAIN CONTENT --- */
 .main-container {
   max-width: 850px;
   margin: 0 auto;
@@ -88,7 +91,7 @@ body {
 h2 {
   font-size: 26px;
   color: #3A4D39;
-  border-left: 5px solid #4F6F52; 
+  border-left: 5px solid #4F6F52;
   padding-left: 15px;
   margin-top: 50px;
   margin-bottom: 30px;
@@ -118,26 +121,19 @@ h2 {
 .sub-note {
   display: block;
   margin-top: 10px;
-  padding-left: 20px;
+  padding: 15px;
   border-left: 1px solid #eee;
   color: #666;
   font-style: italic;
   font-size: 16px;
-  font-weight: normal;
 }
 
 .avatar {
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   border: 6px solid #ebf3e8;
   object-fit: cover;
-}
-
-a {
-  color: #4F6F52;
-  text-decoration: none;
-  font-weight: 600;
 }
 
 footer {
