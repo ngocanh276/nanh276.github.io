@@ -1,3 +1,4 @@
+/* Font Charm không lỗi dấu, Playfair sang trọng */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Charm:wght@400;700&display=swap');
 
 body {
@@ -12,7 +13,7 @@ body {
 .hero-section {
   position: relative;
   width: 100%;
-  height: 100vh; /* Chiều cao bằng toàn bộ màn hình */
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,53 +21,50 @@ body {
   background-color: #fcfbf8;
 }
 
-/* Tạo hiệu ứng trượt nhẹ cho chính cái nền hero_1 */
+/* Nền Hero 1 - Gọi trực tiếp file png ở thư mục gốc */
 .hero-bg {
   position: absolute;
-  width: 110%; /* Rộng hơn một chút để trượt qua lại */
+  width: 100%;
   height: 100%;
-  background-image: url('images/hero_1.png');
-  background-size: contain; /* Giữ nguyên họa tiết lá xinh xắn của hero_1 */
+  background-image: url('hero_1.png');
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  animation: backgroundMove 10s infinite alternate ease-in-out;
   z-index: 1;
-}
-
-@keyframes backgroundMove {
-  0% { transform: scale(1) translateX(-2%); }
-  100% { transform: scale(1.05) translateX(2%); }
 }
 
 .hero-content {
   position: relative;
   z-index: 10;
   text-align: center;
-  width: 90%;
-  max-width: 800px;
+  width: 85%;
+  max-width: 700px;
+  background: rgba(252, 251, 248, 0.4);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(3px);
 }
 
 .hero-name {
-  font-size: clamp(36px, 8vw, 65px);
+  font-size: clamp(32px, 7vw, 55px);
   color: #3A4D39;
-  margin-bottom: 20px;
+  margin: 0 0 10px 0;
   font-weight: 700;
-  letter-spacing: 2px;
 }
 
 .hero-quote {
-  font-family: 'Charm', cursive; /* Font ko lỗi dấu */
-  font-size: clamp(24px, 5vw, 42px);
+  font-family: 'Charm', cursive;
+  font-size: clamp(20px, 4vw, 34px);
   color: #4F6F52;
-  line-height: 1.5;
+  line-height: 1.4;
   font-style: italic;
 }
 
 .hero-author {
   display: block;
-  margin-top: 15px;
-  font-size: 16px;
-  letter-spacing: 4px;
+  margin-top: 10px;
+  font-size: 14px;
+  letter-spacing: 3px;
   color: #888;
   text-transform: uppercase;
 }
@@ -75,16 +73,16 @@ body {
 .main-container {
   max-width: 850px;
   margin: 0 auto;
-  padding: 80px 20px;
+  padding: 60px 20px;
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 26px;
   color: #3A4D39;
-  border-left: 6px solid #4F6F52;
-  padding-left: 20px;
-  margin-top: 60px;
-  margin-bottom: 30px;
+  border-left: 5px solid #4F6F52;
+  padding-left: 15px;
+  margin-top: 50px;
+  margin-bottom: 25px;
 }
 
 .info-list {
@@ -94,10 +92,10 @@ h2 {
 
 .info-list li {
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 18px;
-  font-size: 17.5px;
-  font-weight: normal; /* Đã bỏ bold hoàn toàn */
+  padding-left: 30px;
+  margin-bottom: 15px;
+  font-size: 17px;
+  font-weight: normal; /* Không bold */
 }
 
 .info-list li::before {
@@ -105,26 +103,24 @@ h2 {
   position: absolute;
   left: 0;
   color: #8FBC8F;
-  font-size: 26px;
+  font-size: 24px;
 }
 
 .sub-note {
   display: block;
-  margin-top: 12px;
-  padding: 20px;
-  background: #f9fbf9;
-  border-left: 1px solid #d2e3c8;
+  margin-top: 10px;
+  padding: 15px;
+  background: #fdfdfd;
+  border-left: 1px solid #eee;
   color: #666;
   font-style: italic;
-  font-size: 16px;
-  line-height: 1.8;
 }
 
 .avatar {
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  border: 8px solid #ebf3e8;
+  border: 6px solid #ebf3e8;
   object-fit: cover;
 }
 
@@ -132,34 +128,3 @@ h2 {
 .social-footer {
   position: relative;
   width: 100%;
-  padding: 120px 0;
-  text-align: center;
-  color: white;
-  margin-top: 50px;
-  overflow: hidden;
-}
-
-.footer-bg {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: url('images/hero_2.png');
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-}
-
-.footer-overlay {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(58, 77, 57, 0.5); /* Lớp phủ xanh lá mờ để nổi chữ trắng */
-  z-index: 2;
-}
-
-.footer-content {
-  position: relative;
-  z-index: 10;
-}
-
-.footer-content a {
-  color: white;
-  text-decoration: none
