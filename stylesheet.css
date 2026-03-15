@@ -1,88 +1,99 @@
-/* Font Charm không lỗi dấu, Playfair sang trọng */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Charm:wght@400;700&display=swap');
+/* Nhúng font Charm cho câu thơ, và các font khác */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,700;1,400&family=Charm:wght@400;700&family=Roboto:wght@300;400&display=swap');
 
 body {
   font-family: 'Playfair Display', serif;
   background-color: #fcfbf8;
   color: #2c3e50;
+  line-height: 1.8;
   margin: 0;
   padding: 0;
 }
 
-/* --- HERO SECTION FULL MÀN HÌNH --- */
+/* --- HERO SECTION FULL MÀN HÌNH TĨNH --- */
 .hero-section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100vh; /* FULL CHIỀU CAO MÀN HÌNH */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #fcfbf8;
+  margin-bottom: 50px;
 }
 
-/* Nền Hero 1 - Gọi trực tiếp file png ở thư mục gốc */
-.hero-bg {
+/* Nền Hero 1 tĩnh (không Slider) */
+.hero-bg-static {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('hero_1.png');
-  background-size: contain;
+  /* ĐƯỜNG DẪN ẢNH HERO 1 */
+  background-image: url('hero_1.png'); 
   background-position: center;
   background-repeat: no-repeat;
+  /* PHỦ KÍN MÀN HÌNH NHƯNG GIỮ NGUYÊN TỶ LỆ ẢNH DỌC */
+  background-size: cover; 
   z-index: 1;
+}
+
+/* Lớp phủ mờ để chữ nổi bật trên ảnh */
+.hero-bg-static::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.3); /* Phủ mờ xanh đen nhẹ để chữ nổi bật */
 }
 
 .hero-content {
   position: relative;
   z-index: 10;
   text-align: center;
-  width: 85%;
-  max-width: 700px;
-  background: rgba(252, 251, 248, 0.4);
-  padding: 30px;
-  border-radius: 20px;
-  backdrop-filter: blur(3px);
+  color: #fff;
+  width: 90%;
+  max-width: 800px;
 }
 
 .hero-name {
-  font-size: clamp(32px, 7vw, 55px);
-  color: #3A4D39;
-  margin: 0 0 10px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
   font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
 }
 
+/* Câu thơ lãng mạn: DÙNG FONT CHARM KHÔNG LỖI DẤU */
 .hero-quote {
   font-family: 'Charm', cursive;
-  font-size: clamp(20px, 4vw, 34px);
-  color: #4F6F52;
+  font-size: 32px;
   line-height: 1.4;
-  font-style: italic;
+  margin-bottom: 10px;
 }
 
 .hero-author {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-style: italic;
   display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  letter-spacing: 3px;
-  color: #888;
-  text-transform: uppercase;
 }
 
 /* --- MAIN CONTENT --- */
 .main-container {
   max-width: 850px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 0 40px 60px 40px;
 }
 
 h2 {
-  font-size: 26px;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
   color: #3A4D39;
-  border-left: 5px solid #4F6F52;
-  padding-left: 15px;
-  margin-top: 50px;
-  margin-bottom: 25px;
+  border-left: 6px solid #4F6F52; /* Thanh dọc đầu mục */
+  padding-left: 20px;
+  margin-top: 60px;
+  margin-bottom: 35px;
+  font-weight: 700;
 }
 
 .info-list {
@@ -92,10 +103,10 @@ h2 {
 
 .info-list li {
   position: relative;
-  padding-left: 30px;
-  margin-bottom: 15px;
+  padding-left: 35px;
+  margin-bottom: 18px;
   font-size: 17px;
-  font-weight: normal; /* Không bold */
+  font-weight: normal; /* Đã bỏ bold hoàn toàn */
 }
 
 .info-list li::before {
@@ -106,25 +117,32 @@ h2 {
   font-size: 24px;
 }
 
+/* Phần achievements phụ ko bold */
 .sub-note {
   display: block;
-  margin-top: 10px;
-  padding: 15px;
-  background: #fdfdfd;
-  border-left: 1px solid #eee;
+  margin-top: 12px;
+  padding: 20px;
+  background: #f9fbf9;
+  border-left: 1px solid #d2e3c8;
   color: #666;
   font-style: italic;
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 .avatar {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  border: 6px solid #ebf3e8;
+  border: 8px solid #ebf3e8;
   object-fit: cover;
 }
 
-/* --- FOOTER VỚI NỀN HERO 2 --- */
-.social-footer {
-  position: relative;
-  width: 100%;
+/* Footer cũ */
+footer {
+  text-align: center;
+  margin-top: 80px;
+  padding: 40px;
+  border-top: 1px solid #eee;
+  color: #aaa;
+}
