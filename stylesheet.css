@@ -1,104 +1,116 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Charm:wght@400;700&display=swap');
 
+/* Định nghĩa màu nền kem toàn trang */
 body {
     font-family: 'Playfair Display', serif;
-    background-color: #fcfbf8;
+    background-color: #f2f0eb; /* Màu kem nền giống ảnh mẫu */
     color: #2c3e50;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-}
-
-/* --- HERO SECTION --- */
-.hero-section {
-    position: relative;
-    width: 100%;
-    height: 100vh;
+    line-height: 1.8;
     display: flex;
-    align-items: center;
     justify-content: center;
+    min-height: 100vh; /* Đảm bảo căn giữa ngay cả khi nội dung ít */
 }
 
-.hero-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url('hero_1.png'); /* Đuôi PNG */
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
-}
-
-.hero-content {
+/* --- ĐÂY LÀ KHUNG TRẮNG CỐ ĐỊNH CỦA ÔNG (MAIN CARD) --- */
+.main-card {
+    background-color: #ffffff; /* Màu trắng bên trong khung */
+    width: 90%;
+    max-width: 960px; /* Chiều rộng tối đa của khung */
+    margin: 60px 0; /* Khoảng cách trên dưới khung */
+    padding: 60px 80px; /* Khoảng cách bên trong khung */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06); /* Bóng đổ nhẹ tạo chiều sâu */
+    border-radius: 4px; /* Bo góc cực nhẹ */
     position: relative;
-    z-index: 10;
-    text-align: center;
-    background: rgba(252, 251, 248, 0.4);
-    padding: 30px;
-    border-radius: 15px;
+    box-sizing: border-box; /* Đảm bảo padding ko làm tăng chiều rộng */
+}
+
+/* 1. Tên và Thơ (Đầu trang) */
+.header-section {
+    margin-bottom: 60px; /* Khoảng cách dưới phần tên */
 }
 
 .hero-name {
-    font-size: clamp(32px, 8vw, 60px);
+    font-size: 32px;
     color: #3A4D39;
-    margin: 0;
     font-weight: 700;
+    margin: 0 0 20px 0;
 }
 
 .hero-quote {
     font-family: 'Charm', cursive;
-    font-size: clamp(20px, 4vw, 36px);
+    font-size: 20px;
     color: #4F6F52;
-    margin-top: 10px;
+    line-height: 1.4;
+    font-style: italic;
+    margin: 0 0 10px 0;
 }
 
-/* --- MAIN CONTENT (KÉO CAO LÊN SÁT HERO) --- */
-.main-container {
-    max-width: 900px;
-    margin: -80px auto 0; /* Kéo cao lên thêm chút nữa */
-    position: relative;
-    z-index: 20;
-    background: white;
-    padding: 40px 50px;
-    box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
-    border-radius: 20px 20px 0 0;
+.hero-author {
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 2px;
 }
 
-.intro-section {
+/* 2. Phần Introduction (Flexbox để avt nằm bên phải) */
+.intro-container {
     display: flex;
     align-items: center;
     gap: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
-.intro-text { flex: 2; text-align: justify; }
-.avatar-box { flex: 1; text-align: center; }
+.intro-text {
+    flex: 2;
+    font-size: 16px;
+    color: #333;
+    text-align: justify;
+}
+
+.intro-quote-italic {
+    color: #4F6F52;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.avatar-box {
+    flex: 1;
+    text-align: center;
+}
 
 .avatar {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    border: 6px solid #ebf3e8;
+    border: 5px solid #ebf3e8;
     object-fit: cover;
-    display: block;
-    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
+/* 3. Phần Thông tin chi tiết */
 h2 {
-    font-size: 22px;
+    font-size: 20px;
     color: #3A4D39;
-    border-left: 5px solid #4F6F52;
+    border-left: 4px solid #4F6F52;
     padding-left: 15px;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.info-list { list-style: none; padding: 0; }
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 .info-list li {
-    margin-bottom: 12px;
-    padding-left: 25px;
-    position: relative;
     font-size: 16px;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
 }
 
 .info-list li::before {
@@ -106,43 +118,42 @@ h2 {
     position: absolute;
     left: 0;
     color: #8FBC8F;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .highlight-box {
-    background: #f9fbf9;
+    background: #fcfbf8;
     padding: 20px;
     border-left: 1px solid #d2e3c8;
     font-style: italic;
+    color: #666;
     margin-top: 15px;
-    color: #555;
-    line-height: 1.8;
+    border-radius: 2px;
 }
 
-/* --- FOOTER --- */
+/* 4. Footer (Connect) */
 .social-footer {
-    position: relative;
-    padding: 80px 20px;
+    border-top: 1px solid #eee;
+    margin-top: 70px;
+    padding-top: 40px;
     text-align: center;
-    color: white;
-    background-image: url('hero_2.png'); /* Đuôi PNG */
-    background-size: cover;
-    background-position: center;
-    margin-top: 50px;
 }
 
-.social-footer::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(58, 77, 57, 0.75);
-}
-
-.footer-content { position: relative; z-index: 10; }
-.footer-content a {
-    color: white;
+.social-footer a {
+    color: #4F6F52;
     text-decoration: none;
     margin: 0 15px;
     font-weight: 600;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.social-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .main-card { padding: 40px; margin: 30px 0; }
+    .intro-container { flex-direction: column-reverse; gap: 20px; }
+    .avatar { width: 150px; height: 150px; }
+    .hero-name { font-size: 28px; }
 }
