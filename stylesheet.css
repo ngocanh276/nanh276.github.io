@@ -49,30 +49,23 @@ header {
     text-transform: uppercase;
 }
 
-/* NỘI DUNG CHÍNH (FLEX ĐỂ ẢNH ĐÈ CHỮ) */
+/* CHIA 2 CỘT: CHỮ TRÁI - ẢNH PHẢI */
 .content-wrapper {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Để đỉnh ảnh và chữ bằng nhau */
     gap: 50px;
     margin-bottom: 60px;
 }
 
 .text-area {
-    flex: 2;
+    flex: 2; /* Chữ chiếm 2 phần diện tích */
     font-size: 17px;
     line-height: 1.8;
     text-align: justify;
 }
 
-.italic-intro {
-    font-style: italic;
-    color: #4F6F52;
-    margin-bottom: 25px;
-    display: block;
-}
-
 .avatar-container {
-    flex: 1;
+    flex: 1; /* Ảnh chiếm 1 phần diện tích */
     display: flex;
     justify-content: flex-end;
 }
@@ -81,9 +74,16 @@ header {
     width: 260px;
     height: 260px;
     border-radius: 50%;
-    border: 8px solid #f5f3ef; /* Viền tiệp màu nền cực sang */
+    border: 8px solid #f5f3ef; /* Viền tiệp màu nền */
     object-fit: cover;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.italic-intro {
+    font-style: italic;
+    color: #4F6F52;
+    margin-bottom: 25px;
+    display: block;
 }
 
 /* TIÊU ĐỀ MỤC */
@@ -129,7 +129,7 @@ h2 {
     line-height: 1.8;
 }
 
-/* FOOTER ĐƠN GIẢN */
+/* FOOTER */
 footer {
     margin-top: 100px;
     text-align: center;
@@ -160,7 +160,12 @@ footer {
 /* Responsive cho điện thoại */
 @media (max-width: 768px) {
     .main-card { padding: 40px 20px; }
-    .content-wrapper { flex-direction: column-reverse; }
+    .content-wrapper { 
+        flex-direction: column-reverse; /* Đưa ảnh lên trên chữ khi xem trên đt */
+        align-items: center; 
+        gap: 30px;
+    }
+    .avatar-container { justify-content: center; }
     .name { font-size: 36px; }
     .avatar { width: 200px; height: 200px; }
 }
