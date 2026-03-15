@@ -1,116 +1,113 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Charm:wght@400;700&display=swap');
 
-/* Định nghĩa màu nền kem toàn trang */
 body {
     font-family: 'Playfair Display', serif;
-    background-color: #f2f0eb; /* Màu kem nền giống ảnh mẫu */
-    color: #2c3e50;
+    background-color: #f5f3ef; /* Màu kem nền chuẩn */
     margin: 0;
-    padding: 0;
-    line-height: 1.8;
+    padding: 40px 0;
     display: flex;
     justify-content: center;
-    min-height: 100vh; /* Đảm bảo căn giữa ngay cả khi nội dung ít */
+    color: #2c3e50;
 }
 
-/* --- ĐÂY LÀ KHUNG TRẮNG CỐ ĐỊNH CỦA ÔNG (MAIN CARD) --- */
+/* KHUNG TRẮNG CARD */
 .main-card {
-    background-color: #ffffff; /* Màu trắng bên trong khung */
+    background: #ffffff;
     width: 90%;
-    max-width: 960px; /* Chiều rộng tối đa của khung */
-    margin: 60px 0; /* Khoảng cách trên dưới khung */
-    padding: 60px 80px; /* Khoảng cách bên trong khung */
-    box-shadow: 0 10px 40px rgba(0,0,0,0.06); /* Bóng đổ nhẹ tạo chiều sâu */
-    border-radius: 4px; /* Bo góc cực nhẹ */
-    position: relative;
-    box-sizing: border-box; /* Đảm bảo padding ko làm tăng chiều rộng */
+    max-width: 1000px;
+    padding: 80px 100px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.03);
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-/* 1. Tên và Thơ (Đầu trang) */
-.header-section {
-    margin-bottom: 60px; /* Khoảng cách dưới phần tên */
+/* HEADER CĂN GIỮA */
+header {
+    text-align: center;
+    margin-bottom: 80px;
 }
 
-.hero-name {
-    font-size: 32px;
+.name {
+    font-size: 56px;
     color: #3A4D39;
-    font-weight: 700;
     margin: 0 0 20px 0;
+    font-weight: 700;
 }
 
-.hero-quote {
+.quote {
     font-family: 'Charm', cursive;
-    font-size: 20px;
+    font-size: 26px;
     color: #4F6F52;
     line-height: 1.4;
-    font-style: italic;
-    margin: 0 0 10px 0;
+    margin-bottom: 10px;
 }
 
-.hero-author {
-    font-size: 13px;
-    color: #888;
-    letter-spacing: 2px;
+.author {
+    font-size: 14px;
+    color: #999;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
-/* 2. Phần Introduction (Flexbox để avt nằm bên phải) */
-.intro-container {
+/* NỘI DUNG CHÍNH (FLEX ĐỂ ẢNH ĐÈ CHỮ) */
+.content-wrapper {
     display: flex;
     align-items: center;
-    gap: 40px;
-    margin-bottom: 50px;
+    gap: 50px;
+    margin-bottom: 60px;
 }
 
-.intro-text {
+.text-area {
     flex: 2;
-    font-size: 16px;
-    color: #333;
+    font-size: 17px;
+    line-height: 1.8;
     text-align: justify;
 }
 
-.intro-quote-italic {
-    color: #4F6F52;
+.italic-intro {
     font-style: italic;
-    margin-bottom: 15px;
+    color: #4F6F52;
+    margin-bottom: 25px;
+    display: block;
 }
 
-.avatar-box {
+.avatar-container {
     flex: 1;
-    text-align: center;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .avatar {
-    width: 200px;
-    height: 200px;
+    width: 260px;
+    height: 260px;
     border-radius: 50%;
-    border: 5px solid #ebf3e8;
+    border: 8px solid #f5f3ef; /* Viền tiệp màu nền cực sang */
     object-fit: cover;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* 3. Phần Thông tin chi tiết */
+/* TIÊU ĐỀ MỤC */
 h2 {
-    font-size: 20px;
+    font-size: 24px;
     color: #3A4D39;
     border-left: 4px solid #4F6F52;
     padding-left: 15px;
-    margin-top: 50px;
-    margin-bottom: 25px;
-    text-transform: uppercase;
+    margin: 60px 0 30px 0;
     letter-spacing: 1px;
 }
 
+/* DANH SÁCH THÔNG TIN */
 .info-list {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .info-list li {
-    font-size: 16px;
+    font-size: 17px;
     margin-bottom: 15px;
-    position: relative;
     padding-left: 30px;
+    position: relative;
+    color: #444;
 }
 
 .info-list li::before {
@@ -118,42 +115,52 @@ h2 {
     position: absolute;
     left: 0;
     color: #8FBC8F;
-    font-size: 22px;
+    font-size: 25px;
+    line-height: 1;
 }
 
-.highlight-box {
-    background: #fcfbf8;
-    padding: 20px;
-    border-left: 1px solid #d2e3c8;
+.note-box {
+    background: #fafaf8;
+    padding: 25px;
+    border-left: 1px solid #e0e0d0;
     font-style: italic;
     color: #666;
-    margin-top: 15px;
-    border-radius: 2px;
+    margin-top: 20px;
+    line-height: 1.8;
 }
 
-/* 4. Footer (Connect) */
-.social-footer {
-    border-top: 1px solid #eee;
-    margin-top: 70px;
-    padding-top: 40px;
+/* FOOTER ĐƠN GIẢN */
+footer {
+    margin-top: 100px;
     text-align: center;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 40px;
 }
 
-.social-footer a {
+.footer-links a {
     color: #4F6F52;
     text-decoration: none;
     margin: 0 15px;
     font-weight: 600;
+    font-size: 15px;
+    transition: 0.3s;
 }
 
-.social-footer a:hover {
+.footer-links a:hover {
+    color: #3A4D39;
     text-decoration: underline;
 }
 
-/* Mobile Responsive */
+.copyright {
+    font-size: 12px;
+    color: #bbb;
+    margin-top: 25px;
+}
+
+/* Responsive cho điện thoại */
 @media (max-width: 768px) {
-    .main-card { padding: 40px; margin: 30px 0; }
-    .intro-container { flex-direction: column-reverse; gap: 20px; }
-    .avatar { width: 150px; height: 150px; }
-    .hero-name { font-size: 28px; }
+    .main-card { padding: 40px 20px; }
+    .content-wrapper { flex-direction: column-reverse; }
+    .name { font-size: 36px; }
+    .avatar { width: 200px; height: 200px; }
 }
