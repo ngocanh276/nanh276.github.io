@@ -49,23 +49,23 @@ header {
     text-transform: uppercase;
 }
 
-/* CHIA 2 CỘT: CHỮ TRÁI - ẢNH PHẢI */
-.content-wrapper {
+/* PHẦN GIỚI THIỆU: CHIA 2 CỘT CHUẨN (Khớp với HTML của ông) */
+.intro-container {
     display: flex;
-    align-items: flex-start; /* Để đỉnh ảnh và chữ bằng nhau */
+    align-items: center; 
     gap: 50px;
     margin-bottom: 60px;
 }
 
 .text-area {
-    flex: 2; /* Chữ chiếm 2 phần diện tích */
+    flex: 2; /* Chữ chiếm 2 phần diện tích bên trái */
     font-size: 17px;
     line-height: 1.8;
     text-align: justify;
 }
 
-.avatar-container {
-    flex: 1; /* Ảnh chiếm 1 phần diện tích */
+.avatar-box {
+    flex: 1; /* Ảnh chiếm 1 phần diện tích bên phải */
     display: flex;
     justify-content: flex-end;
 }
@@ -74,7 +74,7 @@ header {
     width: 260px;
     height: 260px;
     border-radius: 50%;
-    border: 8px solid #f5f3ef; /* Viền tiệp màu nền */
+    border: 8px solid #f5f3ef;
     object-fit: cover;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
@@ -160,12 +160,12 @@ footer {
 /* Responsive cho điện thoại */
 @media (max-width: 768px) {
     .main-card { padding: 40px 20px; }
-    .content-wrapper { 
-        flex-direction: column-reverse; /* Đưa ảnh lên trên chữ khi xem trên đt */
+    .intro-container { 
+        flex-direction: column-reverse; /* Ảnh lên trên chữ khi xem trên điện thoại */
         align-items: center; 
         gap: 30px;
     }
-    .avatar-container { justify-content: center; }
+    .avatar-box { justify-content: center; }
     .name { font-size: 36px; }
     .avatar { width: 200px; height: 200px; }
 }
