@@ -1,99 +1,104 @@
-/* Nhúng font Charm cho câu thơ, và các font khác */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,700;1,400&family=Charm:wght@400;700&family=Roboto:wght@300;400&display=swap');
+/* Font Charm hỗ trợ tiếng Việt cực tốt cho thơ, ko lỗi dấu */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Charm:wght@400;700&display=swap');
 
 body {
   font-family: 'Playfair Display', serif;
   background-color: #fcfbf8;
   color: #2c3e50;
-  line-height: 1.8;
   margin: 0;
   padding: 0;
 }
 
-/* --- HERO SECTION FULL MÀN HÌNH TĨNH --- */
+/* --- HERO SECTION --- */
 .hero-section {
   position: relative;
   width: 100%;
-  height: 100vh; /* FULL CHIỀU CAO MÀN HÌNH */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100vh; /* Full màn hình để ảnh dọc hiển thị đẹp nhất */
   overflow: hidden;
-  margin-bottom: 50px;
+  background-color: #fcfbf8;
 }
 
-/* Nền Hero 1 tĩnh (không Slider) */
-.hero-bg-static {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+.slider {
+  width: 400%;
   height: 100%;
-  /* ĐƯỜNG DẪN ẢNH HERO 1 */
-  background-image: url('hero_1.png'); 
+  display: flex;
+  animation: slide 18s infinite ease-in-out;
+}
+
+.slide {
+  width: 25%;
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  /* PHỦ KÍN MÀN HÌNH NHƯNG GIỮ NGUYÊN TỶ LỆ ẢNH DỌC */
-  background-size: cover; 
-  z-index: 1;
+  background-size: contain; /* Giữ nguyên tỷ lệ ảnh dọc của ông */
+  position: relative;
 }
 
-/* Lớp phủ mờ để chữ nổi bật trên ảnh */
-.hero-bg-static::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.3); /* Phủ mờ xanh đen nhẹ để chữ nổi bật */
-}
+/* Nhớ up ảnh vào folder images với tên chính xác hero_1.png ... */
+.slide1 { background-image: url('images/hero_1.png'); }
+.slide2 { background-image: url('images/hero_2.png'); }
+.slide3 { background-image: url('images/hero_3.png'); }
+.slide4 { background-image: url('images/hero_1.png'); }
 
 .hero-content {
-  position: relative;
-  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Căn giữa tuyệt đối */
   text-align: center;
-  color: #fff;
-  width: 90%;
-  max-width: 800px;
+  z-index: 10;
+  width: 80%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.4); /* Nền mờ để nổi chữ trên ảnh */
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(4px);
 }
 
 .hero-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 56px;
+  font-size: clamp(30px, 6vw, 50px);
+  color: #3A4D39;
+  margin: 0 0 15px 0;
   font-weight: 700;
-  margin-bottom: 15px;
-  letter-spacing: 2px;
 }
 
-/* Câu thơ lãng mạn: DÙNG FONT CHARM KHÔNG LỖI DẤU */
 .hero-quote {
   font-family: 'Charm', cursive;
-  font-size: 32px;
+  font-size: clamp(20px, 4vw, 32px);
+  color: #4F6F52;
   line-height: 1.4;
-  margin-bottom: 10px;
+  font-style: italic;
 }
 
 .hero-author {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-style: italic;
   display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #777;
 }
 
-/* --- MAIN CONTENT --- */
+@keyframes slide {
+  0%, 25% { transform: translateX(0%); }
+  33%, 58% { transform: translateX(-25%); }
+  66%, 91% { transform: translateX(-50%); }
+  100% { transform: translateX(-75%); }
+}
+
+/* --- NỘI DUNG DƯỚI --- */
 .main-container {
   max-width: 850px;
   margin: 0 auto;
-  padding: 0 40px 60px 40px;
+  padding: 60px 20px;
 }
 
 h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
+  font-size: 26px;
   color: #3A4D39;
-  border-left: 6px solid #4F6F52; /* Thanh dọc đầu mục */
-  padding-left: 20px;
-  margin-top: 60px;
-  margin-bottom: 35px;
-  font-weight: 700;
+  border-left: 5px solid #4F6F52;
+  padding-left: 15px;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 .info-list {
@@ -103,10 +108,10 @@ h2 {
 
 .info-list li {
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 18px;
+  padding-left: 30px;
+  margin-bottom: 15px;
   font-size: 17px;
-  font-weight: normal; /* Đã bỏ bold hoàn toàn */
+  font-weight: normal; /* Bỏ bold */
 }
 
 .info-list li::before {
@@ -117,28 +122,24 @@ h2 {
   font-size: 24px;
 }
 
-/* Phần achievements phụ ko bold */
 .sub-note {
   display: block;
-  margin-top: 12px;
-  padding: 20px;
-  background: #f9fbf9;
-  border-left: 1px solid #d2e3c8;
+  margin-top: 10px;
+  padding: 15px;
+  border-left: 1px solid #eee;
   color: #666;
   font-style: italic;
   font-size: 16px;
-  line-height: 1.8;
 }
 
 .avatar {
-  width: 220px;
-  height: 220px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  border: 8px solid #ebf3e8;
+  border: 6px solid #ebf3e8;
   object-fit: cover;
 }
 
-/* Footer cũ */
 footer {
   text-align: center;
   margin-top: 80px;
