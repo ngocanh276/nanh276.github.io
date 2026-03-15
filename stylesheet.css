@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Dancing+Script:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600&family=Roboto:wght@300;400&display=swap');
 
 body {
     font-family: 'Playfair Display', serif;
@@ -6,6 +6,7 @@ body {
     color: #2f3e2f;
     margin: 0;
     padding: 20px;
+    line-height: 1.8;
 }
 
 .main-container {
@@ -46,16 +47,61 @@ header {
     color: #999;
 }
 
+h2 {
+    color: #3A4D39;
+    border-left: 5px solid #4F6F52; 
+    padding-left: 15px;
+    font-size: 26px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.info-list {
+    list-style: none;
+    padding-left: 5px;
+}
+
+.info-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    font-size: 17px;
+}
+
+.info-list li::before {
+    content: "•"; 
+    position: absolute;
+    left: 0;
+    color: #4F6F52; 
+    font-size: 22px;
+    line-height: 1;
+}
+
+.sub-note {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+    display: block;
+    font-size: 16px;
+    line-height: 1.6;
+    border-left: 2px solid #d2e3c8;
+    padding-left: 15px;
+    margin-left: 5px;
+}
+
 .profile-section {
     display: flex;
     align-items: center;
     gap: 40px;
+    margin-bottom: 40px;
 }
 
 .profile-text {
-       flex: 2;
+    flex: 2;
     font-size: 17px;
-    line-height: 1.8; 
     text-align: justify; 
 }
 
@@ -65,12 +111,7 @@ header {
     border-radius: 50%;
     border: 8px solid #ebf3e8;
     object-fit: cover;
-}
-
-h2 {
-    color: #3A4D39;
-    border-left: 5px solid #4F6F52;
-    padding-left: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .highlight {
@@ -82,11 +123,19 @@ a {
     color: #4F6F52;
     font-weight: bold;
     text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #3A4D39;
+    text-decoration: underline;
 }
 
 footer {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 80px;
     font-style: italic;
     color: #aaa;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
 }
