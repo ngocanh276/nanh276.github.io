@@ -8,6 +8,7 @@ body {
     display: flex;
     justify-content: center;
     color: #2c3e50;
+    overflow-x: hidden; /* Chống tràn ngang trên mobile */
 }
 
 /* KHUNG TRẮNG CARD */
@@ -49,10 +50,10 @@ header {
     text-transform: uppercase;
 }
 
-/* NỘI DUNG CHÍNH (FLEX ĐỂ ẢNH ĐÈ CHỮ) */
+/* NỘI DUNG CHÍNH - PHẦN GIỚI THIỆU CHIA 2 CỘT */
 .content-wrapper {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Để ảnh và chữ bắt đầu bằng nhau từ đỉnh */
     gap: 50px;
     margin-bottom: 60px;
 }
@@ -62,6 +63,7 @@ header {
     font-size: 17px;
     line-height: 1.8;
     text-align: justify;
+    word-wrap: break-word; /* Chống tràn chữ khi link quá dài */
 }
 
 .italic-intro {
@@ -75,15 +77,18 @@ header {
     flex: 1;
     display: flex;
     justify-content: flex-end;
+    position: sticky; /* Giữ ảnh cố định nhẹ khi scroll qua đoạn text dài */
+    top: 20px;
 }
 
 .avatar {
     width: 260px;
     height: 260px;
     border-radius: 50%;
-    border: 8px solid #f5f3ef; /* Viền tiệp màu nền cực sang */
-    object-fit: cover;
+    border: 8px solid #f5f3ef; /* Viền tiệp màu nền */
+    object-fit: cover; /* Quan trọng: để ảnh không bị méo dù file gốc là vuông hay chữ nhật */
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    display: block;
 }
 
 /* TIÊU ĐỀ MỤC */
@@ -157,10 +162,22 @@ footer {
     margin-top: 25px;
 }
 
-/* Responsive cho điện thoại */
+/* Responsive cho điện thoại - TỰ ĐỘNG DỒN ẢNH XUỐNG DƯỚI CHỮ */
 @media (max-width: 768px) {
-    .main-card { padding: 40px 20px; }
-    .content-wrapper { flex-direction: column-reverse; }
-    .name { font-size: 36px; }
+    .main-card { 
+        padding: 40px 25px; 
+        width: 95%;
+    }
+    .content-wrapper { 
+        flex-direction: column-reverse; /* Ảnh lên trên hoặc xuống dưới tùy ý, ở đây là text trước ảnh sau */
+        gap: 30px; 
+    }
+    .avatar-container {
+        justify-content: center;
+        position: static;
+    }
+    .name { font-size: 32px; }
+    .quote { font-size: 20px; }
     .avatar { width: 200px; height: 200px; }
+    .text-area { font-size: 16px; }
 }
